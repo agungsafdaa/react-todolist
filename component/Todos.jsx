@@ -1,40 +1,23 @@
 import React from "react";
+import PropTypes from "prop-types";
+import Todo from "./Todo";
 
-const Todos = () => {
+const Todos = ({ todos }) => {
   return (
-    <section className="todos">
-      <div className="todo">
-        <span className="todo-text">Learning react</span>
-      </div>
-      <div className="todo">
-        <span className="todo-text">Learning react</span>
-      </div>
-      <div className="todo">
-        <span className="todo-text">Learning react</span>
-      </div>
-      <div className="todo">
-        <span className="todo-text">Learning react</span>
-      </div>
-      <div className="todo">
-        <span className="todo-text">Learning react</span>
-      </div>
-      <div className="todo">
-        <span className="todo-text">Learning react</span>
-      </div>
-      <div className="todo">
-        <span className="todo-text">Learning react</span>
-      </div>
-      <div className="todo">
-        <span className="todo-text">Learning react</span>
-      </div>
-      <div className="todo">
-        <span className="todo-text">Learning react</span>
-      </div>
-      <div className="todo">
-        <span className="todo-text">Learning react</span>
-      </div>
+    <section ClassName="todos">
+      {todos.map((todo) => {
+        return <Todo text={todo.text} />;
+      })}
     </section>
   );
+};
+
+Todos.propTypes = {
+  todos: PropTypes.arrayOf(
+    PropTypes.shape({
+      text: PropTypes.string
+    })
+  )
 };
 
 export default Todos;
