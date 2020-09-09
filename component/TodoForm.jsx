@@ -9,6 +9,13 @@ const TodoForm = ({ addTodo, showAdd }) => {
       alert("no blank todo");
       return;
     }
+
+    if (value.length > 40) {
+      alert("Plis Shortert Todo");
+      setValue("");
+      return;
+    }
+
     addTodo(value);
     alert(value);
     setValue("");
