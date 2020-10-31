@@ -5,7 +5,8 @@ import Todo from "./Todo";
 const Todos = ({ todos, completeTodo }) => {
   return (
     <section ClassName="todos">
-      {todos.map((todo, index) => {
+      {todos.length > 0 &&
+      todos.map((todo, index) => {
         return (
           <Todo
             key={index}
@@ -16,6 +17,9 @@ const Todos = ({ todos, completeTodo }) => {
           />
         );
       })}
+      {todos.length === 0 &&(
+        <div ClassName="Todolistbutton"><h3>Silahkan tekan tombol add untuk menambahkan data</h3></div>
+      )}
     </section>
   );
 };
